@@ -87,37 +87,37 @@
             map.addSource('huskies-tiles', {
                 'type': 'raster',
                 'tiles': [
-                    'tiles/Huskies/{z}/{x}/{y}.png'
+                    'tiles/UW/{z}/{x}/{y}.png'
                 ],
                 'tileSize': 256,
-                'attribution': 'Map tiles designed by Bo Zhao</a>'
+                'attribution': 'Map tiles designed by Jo Inoue</a>'
             });
 
             map.addSource('base-tiles', {
                 'type': 'raster',
                 'tiles': [
-                    'assets/Basemap/{z}/{x}/{y}.png'
+                    'tiles/Basemap1/{z}/{x}/{y}.png'
                 ],
                 'tileSize': 256,
-                'attribution': 'Map tiles designed by Bo Zhao'
+                'attribution': 'Map tiles designed by Jo Inoue'
             });
 
             map.addSource('park-tiles', {
                 'type': 'raster',
                 'tiles': [
-                    'assets/Parks/{z}/{x}/{y}.png'
+                    'tiles/Parks/{z}/{x}/{y}.png'
                 ],
                 'tileSize': 256,
-                'attribution': 'Map tiles designed by Bo Zhao'
+                'attribution': 'Map tiles designed by Jo Inoue'
             });
 
             map.addSource('composed-tiles', {
                 'type': 'raster',
                 'tiles': [
-                    'assets/Composed Layer2/{z}/{x}/{y}.png'
+                    'tiles/Mixed/{z}/{x}/{y}.png'
                 ],
                 'tileSize': 256,
-                'attribution': 'Map tiles designed by Bo Zhao'
+                'attribution': 'Map tiles designed by Jo Inoue'
             });
 
             map.addLayer({
@@ -162,12 +162,12 @@
         // After the last frame rendered before the map enters an "idle" state.
         map.on('idle', () => {
             // If these two layers were not added to the map, abort
-            if (!map.getLayer('basemap') || !map.getLayer('Huskies') || !map.getLayer('Parks') || !map.getLayer('mixed')) {
+            if (!map.getLayer('basemap') || !map.getLayer('Parks') || !map.getLayer('mixed') || !map.getLayer('Huskies')) {
                 return;
             }
 
             // Enumerate ids of the layers.
-            const toggleableLayerIds = ['basemap', 'Huskies', 'Parks', 'mixed'];
+            const toggleableLayerIds = ['basemap', 'Parks', 'mixed', 'Huskies'];
 
             // Set up the corresponding toggle button for each layer.
             for (const id of toggleableLayerIds) {
